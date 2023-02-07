@@ -1,14 +1,28 @@
+const timer = document.querySelector('#timer');
+const submit = document.querySelector('#cd-form');
+const input = document.querySelector('#input');
+
+
+submit.addEventListener('submit', function (e){
+    e.preventDefault();
+    countdown(input.value);
+    
+});
+
 
 function countdown(num){
     const timerId = setInterval(function(){
-	console.log(num);
+	timer.innerHTML = num;
 	num -= 1;
-	if (num < 1) {
-	    console.log('"DONE!"')
+	if (num < 0) {
+	    timer.innerHTML = 'DONE!';
 	    clearInterval(timerId)
 	}
     }, 1000)
 }
+
+
+
 
 
 function randomGame(){
